@@ -9,7 +9,7 @@ const statusButtons = document.querySelectorAll('[data-type="status"]');
 let lastSentMessage = null;
 let isConnected = false;
 
-const socket = new WebSocket("ws://56.155.110.169:3000");
+const socket = new WebSocket("wss://cnxnapi.hpdjoy.tech");
 let peerConnection;
 let dataChannel;
 
