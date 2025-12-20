@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>P2P Button App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal Interface</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <!-- Full-screen flash overlay -->
+  <div class="flash-overlay" id="flashOverlay">
+    <div class="flash-text" id="flashText"></div>
+  </div>
 
-  <h2>P2P Button Demo</h2>
+  <!-- Connection Status -->
+  <div class="status-bar">
+    <span class="status-dot" id="statusDot"></span>
+    <span class="status-text" id="statusText">Connecting...</span>
+  </div>
 
-  <button id="connectBtn">Connect</button>
-  <button id="sendBtn" disabled>Send Button Click</button>
+  <!-- Button Grid -->
+  <div class="button-grid">
+    <!-- Answer Buttons -->
+    <button class="grid-btn answer-a" data-signal="A" data-type="answer">A</button>
+    <button class="grid-btn answer-b" data-signal="B" data-type="answer">B</button>
+    <button class="grid-btn answer-c" data-signal="C" data-type="answer">C</button>
+    <button class="grid-btn answer-d" data-signal="D" data-type="answer">D</button>
 
-  <p id="status">Status: Not connected</p>
+    <!-- Status Buttons -->
+    <button class="grid-btn status-help" data-signal="Help" data-type="status">HELP</button>
+    <button class="grid-btn status-repeat" data-signal="Repeat" data-type="status">REPEAT</button>
+    <button class="grid-btn status-wait" data-signal="Wait" data-type="status">WAIT</button>
+    <button class="grid-btn status-ok" data-signal="OK" data-type="status">OK</button>
+    <button class="grid-btn status-clear" data-signal="Clear" data-type="status">CLEAR</button>
+    <button class="grid-btn status-done" data-signal="Done" data-type="status">DONE</button>
+  </div>
 
   <script src="app.js"></script>
 </body>
+
 </html>

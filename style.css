@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: #0a0e14;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Status Bar */
+.status-bar {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 8px 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1000;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #747d8c;
+}
+
+.status-dot.connected {
+  background: #26de81;
+}
+
+.status-dot.disconnected {
+  background: #ff4757;
+}
+
+/* Flash Overlay */
+.flash-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flash-overlay.active {
+  opacity: 1;
+}
+
+.flash-text {
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Grid */
+.button-grid {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 0;
+}
+
+.grid-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-btn:active {
+  transform: scale(0.98);
+  filter: brightness(1.2);
+}
+
+.grid-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s, height 0.4s;
+}
+
+.grid-btn:active::before {
+  width: 400px;
+  height: 400px;
+}
+
+/* Answer Buttons */
+.answer-a {
+  background: #4a9eff;
+}
+
+.answer-b {
+  background: #50c878;
+}
+
+.answer-c {
+  background: #ffa94d;
+}
+
+.answer-d {
+  background: #ff6b9d;
+}
+
+/* Status Buttons */
+.status-help {
+  background: #ff4757;
+}
+
+.status-repeat {
+  background: #a29bfe;
+}
+
+.status-wait {
+  background: #ffa502;
+}
+
+.status-ok {
+  background: #26de81;
+}
+
+.status-clear {
+  background: #747d8c;
+}
+
+.status-done {
+  background: #2ed573;
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .button-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+
+  .grid-btn {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+}
+
+/* Responsive - Desktop */
+@media (min-width: 769px) {
+  .button-grid {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .grid-btn {
+    font-size: 3rem;
+  }
+}
